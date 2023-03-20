@@ -1,11 +1,12 @@
 <div class="content has-text-centered">
     <p>
+        {{ with .Site.Params.Author }}
+            &copy; {{ dateFormat "2006" now }}, {{ . }}
+        {{ end }} <br>
         {{ with .Site.Params.Copyright }}
             {{ . }} <br>
         {{ end }}
-        {{ with .Site.Params.Author }}
-            © {{ dateFormat "2006" now }}, {{ . }}.
-        {{ end }}
+        <a href="/about-this-site/" class="about-this-site">About this site</a>
     </p>
     {{ if not .Site.Params.DontShowSource}}
         <p>
